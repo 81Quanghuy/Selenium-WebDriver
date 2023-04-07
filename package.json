@@ -28,6 +28,8 @@
     "deleteCookies": "EXAMPLE_RECIPE=deleteCookies wdio run ./wdio.conf.js --spec ./deleteCookies/example.js",
     "getting-started": "node ./getting-started/run-in-script.js",
     "keys": "EXAMPLE_RECIPE=keys wdio run ./wdio.conf.js --spec ./keys/keys.js",
+    "TestCaseLogin": "node ./TestCaseLogin/testLogin.js",
+    "TestCaseSignUp": "node ./TestCaseSignUp/testSignUp.js",
     "overwriteCommand": "EXAMPLE_RECIPE=overwriteCommand wdio run ./wdio.conf.js --spec ./overwriteCommand/example.js",
     "queryElements": "run-s queryElements:*",
     "queryElements:single": "EXAMPLE_RECIPE=queryElements wdio run ./wdio.conf.js --spec ./queryElements/singleElements.js",
