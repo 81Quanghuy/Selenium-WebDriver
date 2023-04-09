@@ -10,17 +10,25 @@ const browser = await remote({
   },
 });
 // tạo biến chứa id của các element
-const LEAGUE_NAME = "#" + ":r7:".replace(/\:/g, "\\:");
-const MATCH_NAME = "#" + ":r8:".replace(/\:/g, "\\:");
-const TIME = "#" + ":r9:".replace(/\:/g, "\\:");
-const CHANNEL_NAME = "#" + ":ra:".replace(/\:/g, "\\:");
-const IP = "#" + ":rb:".replace(/\:/g, "\\:");
-const PORT = "#" + ":rc:".replace(/\:/g, "\\:");
+const ADD_EVENT =
+  ".MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButtonBase-root.css-12fwbsp-MuiButtonBase-root-MuiButton-root";
+const ITEM_VIDEO =
+  ".MuiFormControlLabel-root.MuiFormControlLabel-labelPlacementEnd.css-j204z7-MuiFormControlLabel-root";
+const VIEW =
+  ".MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButtonBase-root.css-sghohy-MuiButtonBase-root-MuiButton-root";
 
-const ADD_LEAGUENAME = await browser.$("button[type=button]");
-const SAVE_BTN = await browser.$("button[type=submit]");
+const EXIT_ADD_VIDEO =
+  ".MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorPrimary.MuiIconButton-sizeMedium.css-1kuq5xv-MuiButtonBase-root-MuiIconButton-root";
+
+const ADD_LOGO = "input[type=checkbox].ant-checkbox-input";
+const TITLE =
+  ".MuiOutlinedInput-input.MuiInputBase-input.MuiInputBase-inputMultiline.css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input";
+
+const MERGE =
+  ".MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButtonBase-root.css-1clzr65-MuiButtonBase-root-MuiButton-root";
+
 // kiểm tra đăng nhập
-const CHECK_LOGIN = await browser.$(LEAGUE_NAME)?.isExisting();
+const CHECK_LOGIN = await browser.$(ADD_LOGO)?.isExisting();
 if (!CHECK_LOGIN) {
   await browser.url("http://localhost:3000/login");
   await browser.$("#login-username").setValue("huy");
@@ -30,30 +38,22 @@ if (!CHECK_LOGIN) {
 }
 
 // thực hiện các bước test
-ADD_LEAGUENAME.click();
-await browser.pause(3000);
-await browser.$(LEAGUE_NAME).setValue("V League");
-await browser.pause(3000);
-await browser.$(MATCH_NAME).setValue("HAGL vs SHB");
-await browser.pause(3000);
-await browser.$(TIME).setValue("");
-await browser.$(TIME).setValue("04/10/2023 12:31 pm");
-await browser.pause(3000);
-await browser.$(CHANNEL_NAME).setValue("VTV");
-await browser.pause(3000);
-await browser.$(IP).setValue("127.0.0.1");
-await browser.pause(3000);
-await browser.$(PORT).setValue("3000");
-await browser.pause(3000);
-SAVE_BTN.click();
-await browser.pause(3000);
-await browser.saveScreenshot("./caseAddMatch.png");
-// await browser.pause(3000);
-await browser.deleteSession();
-// await browser.chooseFile(
-//   ATTACH_FILE_FIELD,
-//   path.join(__dirname, "../Assets/IT.png")
-// );
+await browser.url("http://localhost:3000/highlight");
 
-// await browser.$(UPLOAD_BUTTON).click();
-// await browser.pause(5000);
+await browser.$(VIEW).click();
+await browser.pause(1000);
+await browser.$(ADD_EVENT).click();
+await browser.pause(1000);
+await browser.$$(ITEM_VIDEO)[0].click();
+await browser.$$(ITEM_VIDEO)[1].click();
+await browser.pause(1000);
+await browser.$(EXIT_ADD_VIDEO).click();
+await browser.pause(1000);
+await browser.$(ADD_LOGO).click();
+await browser.pause(1000);
+await browser.$(TITLE).setValue("HAGL vs SHB");
+await browser.pause(1000);
+await browser.$(MERGE).click();
+await browser.pause(4000);
+await browser.saveScreenshot("./caseAddVideo.png");
+await browser.deleteSession();
