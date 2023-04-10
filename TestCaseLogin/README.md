@@ -5,11 +5,15 @@
 ```sh
 npm install
 
+
 ```
 
 ## Thực thi test case login
 
 ```sh
-npm run TestCaseLogin 
+npm run TestCaseStartW
+```
 
+```sh
+npm run TestCaseLoginError
 ```
