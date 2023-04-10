@@ -31,6 +31,7 @@
     "TestCaseLogin": "node ./TestCaseLogin/testLogin.js",
     "TestCaseSignUp": "node ./TestCaseSignUp/testSignUp.js",
     "TestCaseAddVideo": "node ./TestCaseAddVideo/TestAddVideo.js",
+    "TestCaseShareVideo": "node ./TestCaseShareVideo/TestShareVideo.js",
     "TestCaseAddMatch": "node ./TestCaseAddMatch/TestAddMatch.js",
     "overwriteCommand": "EXAMPLE_RECIPE=overwriteCommand wdio run ./wdio.conf.js --spec ./overwriteCommand/example.js",
     "queryElements": "run-s queryElements:*",
