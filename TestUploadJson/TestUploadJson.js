@@ -1,4 +1,3 @@
-
 // tạo biến chứa id của các element
 const LEAGUE_NAME = "#" + ":r7:".replace(/\:/g, "\\:");
 const MATCH_NAME = "#" + ":r8:".replace(/\:/g, "\\:");
@@ -6,7 +5,7 @@ const TIME = "#" + ":r9:".replace(/\:/g, "\\:");
 const CHANNEL_NAME = "#" + ":ra:".replace(/\:/g, "\\:");
 const IP = "#" + ":rb:".replace(/\:/g, "\\:");
 const PORT = "#" + ":rc:".replace(/\:/g, "\\:");
- // thêm trận đấu
+// thêm trận đấu
 async function createMatch(browser) {
   const ADD_LEAGUENAME = await browser.$("button[type=button]");
   const SAVE_BTN = await browser.$("button[type=submit]");
@@ -31,38 +30,36 @@ async function createMatch(browser) {
   //await browser.deleteSession();
 }
 async function uploadJson(browser) {
-  await browser.$$("td")[6].$('button').click();
+  await browser.$$("td")[6].$("button").click();
   await browser.pause(1000);
-  await browser.$('span[title="types: JSON"]').setValue("Uploaded Successfully!.")
+  await browser
+    .$('span[title="types: JSON"]')
+    .setValue("Uploaded Successfully!.");
   await browser.pause(1000);
-  await browser.$("input[type=file]").setValue("C:\\Users\\DELL\\Downloads\\API-63T.postman_collection.json");
+  await browser.$("input[type=file]").setValue("");
   await browser.pause(1000);
-  await browser.$$('.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButtonBase-root.css-sghohy-MuiButtonBase-root-MuiButton-root')[1].click();
+  await browser
+    .$$(
+      ".MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButtonBase-root.css-sghohy-MuiButtonBase-root-MuiButton-root"
+    )[1]
+    .click();
   await browser.pause(1000);
   await browser.saveScreenshot("./caseUploadJson.png");
   await browser.deleteSession();
 }
 
-import { startBrowser } from '../Browser/browser.js';
-import { testLogin } from '../TestCaseLogin/testLogin.js';
-
+import { startBrowser } from "../Browser/browser.js";
+import { testLogin } from "../TestCaseLogin/testLogin.js";
 
 async function startBr() {
   const browser = await startBrowser();
   const CHECK_LOGIN = await browser.$(LEAGUE_NAME)?.isExisting();
   if (!CHECK_LOGIN) {
-    testLogin(browser)
-      .then(() => {
-        createMatch(browser)
-        .then(() => {
-          uploadJson(browser)
-          .then(() => {})
-          
-        })
-      })
+    testLogin(browser).then(() => {
+      createMatch(browser).then(() => {
+        uploadJson(browser).then(() => {});
+      });
+    });
   }
-
 }
 startBr();
-
-

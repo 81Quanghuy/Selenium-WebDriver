@@ -1,13 +1,12 @@
-
-import fs from 'fs';
+import fs from "fs";
 
 async function testLogin(browser) {
   await browser.url("http://localhost:3000");
   const username = await browser.$("#login-username");
-  await username.setValue("congthanh27");
+  await username.setValue("huy");
   await browser.pause(1000);
   const password = await browser.$("#login-password");
-  await password.setValue("28072002Thanh@");
+  await password.setValue("Huyvff@111");
   await browser.pause(1000);
   const loginButton = await browser.$("#login-button");
   await loginButton.click();

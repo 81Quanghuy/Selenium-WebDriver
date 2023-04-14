@@ -22,10 +22,10 @@ const password = await browser.$("#passwordSignUp");
 const passwordConfirm = await browser.$("#confirmPasswordSignUp");
 const signUpButton = await browser.$("#signUpButton");
 
-await username.setValue("QuangHuy");
+await username.setValue("QuangHuy01");
 await browser.pause(1000);
 
-await email.setValue("ngoquanghuy0510@gmail.com");
+await email.setValue("ngoquanghuyw22@gmail.com");
 await browser.pause(1000);
 
 await fullname.setValue("Ngô Quang Huy");
@@ -42,7 +42,7 @@ await browser.pause(5000);
 
 await browser.saveScreenshot("./caseSignUp.png");
 await browser.pause(1000);
-//await browser.deleteSession();
+await browser.deleteSession();
 
 // fails if file was not created
 fs.existsSync("./caseSignUp.png");

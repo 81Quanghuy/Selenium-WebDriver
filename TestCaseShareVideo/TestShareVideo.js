@@ -80,22 +80,23 @@ const Modal = await browser.$(MODAL);
 const List_input = await Modal.$$(LIST_INPUT);
 
 const Description = await browser.$(DESCRIPTION);
-const BtnDown = await Modal.$(LIST_BUTTON);
-const BtnShare = await browser.$(BTN_SHARE);
-await browser.pause(2000);
+const BtnDown = await Modal.$(
+  ".MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeMedium.MuiAutocomplete-popupIndicator.css-qzbt6i-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
+);
+const BtnShare = await Modal.$$(BTN_SHARE);
 List_input[0].setValue("HAGL vs SHB");
 await browser.pause(3000);
 
-Description.setValue("Đây là automaiton test để share video");
-await browser.pause(1000);
+Description.setValue("Đây là automaiton test");
+await browser.pause(3000);
 List_input[1].setValue("Demo Match");
-await browser.pause(1000);
+await browser.pause(3000);
 List_input[2].setValue("Private");
 await BtnDown.click();
 await browser.pause(3000);
-await BtnShare.click();
+await BtnShare[0].click();
 await browser.pause(3000);
 await browser.saveScreenshot("./caseShareVideo.png");
-await browser.deleteSession();
+//await browser.deleteSession();
 // fails if file was not created
 fs.existsSync("./caseShareVideo.png");

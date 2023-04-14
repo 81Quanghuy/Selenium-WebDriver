@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "78e9d855-495e-4cff-a903-0a55091b73c2",
+		"name": "API-63T",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get City",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://provinces.open-api.vn/api/?depth=1",
+					"protocol": "https",
+					"host": [
+						"provinces",
+						"open-api",
+						"vn"
+					],
+					"path": [
+						"api",
+						""
+					],
+					"query": [
+						{
+							"key": "depth",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Quận trong Thành Phố",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://provinces.open-api.vn/api/p/:idCity?depth=2",
+					"protocol": "https",
+					"host": [
+						"provinces",
+						"open-api",
+						"vn"
+					],
+					"path": [
+						"api",
+						"p",
+						":idCity"
+					],
+					"query": [
+						{
+							"key": "depth",
+							"value": "2"
+						}
+					],
+					"variable": [
+						{
+							"key": "idCity",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy xã Phường",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://provinces.open-api.vn/api/d/:idXaPhuong?depth=2",
+					"protocol": "https",
+					"host": [
+						"provinces",
+						"open-api",
+						"vn"
+					],
+					"path": [
+						"api",
+						"d",
+						":idXaPhuong"
+					],
+					"query": [
+						{
+							"key": "depth",
+							"value": "2"
+						}
+					],
+					"variable": [
+						{
+							"key": "idXaPhuong",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all thông tin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://provinces.open-api.vn/api/?depth=3",
+					"protocol": "https",
+					"host": [
+						"provinces",
+						"open-api",
+						"vn"
+					],
+					"path": [
+						"api",
+						""
+					],
+					"query": [
+						{
+							"key": "depth",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
