@@ -31,6 +31,7 @@
     "TestCaseLogin": "node ./TestCaseLogin/testLogin.js",
     "testcase_login": "EXAMPLE_RECIPE=login wdio run ./wdio.conf.js --spec ./TestCaseLogin/testLogin.js",
     "TestCaseLoginError": "node ./TestCaseLogin/testLoginError.js",
+    "testcase_login_error": "EXAMPLE_RECIPE=login_error wdio run ./wdio.conf.js --spec ./TestCaseLogin/testLoginError.js",
     "TestCaseLogoutbyLogin": "node ./TestCaseLogin/testLogout.js",
     "TestCaseStartW": "node ./TestCaseLogin/TWM.js",
     "TestCaseSignUp": "node ./TestCaseSignUp/testSignUp.js",
