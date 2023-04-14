@@ -11,7 +11,7 @@ jobs:
           - waitForDisplayed
           - waitUntil
           - keys
-          - testCaseLogin
+          - TestCaseLogin
           - queryElements
           - overwriteCommand
           - selectors
