@@ -29,6 +29,7 @@
     "getting-started": "node ./getting-started/run-in-script.js",
     "keys": "EXAMPLE_RECIPE=keys wdio run ./wdio.conf.js --spec ./keys/keys.js",
     "TestCaseLogin": "node ./TestCaseLogin/testLogin.js",
+    "testcase_login": "EXAMPLE_RECIPE=login wdio run ./wdio.conf.js --spec ./TestCaseLogin/testLogin.js",
     "TestCaseLoginError": "node ./TestCaseLogin/testLoginError.js",
     "TestCaseLogoutbyLogin": "node ./TestCaseLogin/testLogout.js",
     "TestCaseStartW": "node ./TestCaseLogin/TWM.js",
